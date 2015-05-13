@@ -2,11 +2,11 @@
 
 Collins English Dictionary asynchronous API for node.js
 
-## Installing
+## Install
 
 `npm install collins`
 
-## Useage
+## Usage
 
 ```js
 var Collins = require('collins');
