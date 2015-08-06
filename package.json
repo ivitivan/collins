@@ -1,7 +1,7 @@
 {
   "name": "collins",
-  "version": "1.0.2",
-  "description": "Collins English Dictionary asynchronous API for iojs",
+  "version": "1.0.3",
+  "description": "Collins English Dictionary asynchronous API for Node.js",
   "main": "./lib/collins.js",
   "dependencies": {
     "request": "^2.55.0"
@@ -19,10 +19,10 @@
     "dictionary",
     "api"
   ],
-  "author": "Brad Benetton",
+  "author": "Vitaly Ivanov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bradbenetton/collins/issues"
+    "url": "https://github.com/ivitivan/collins/issues"
   },
-  "homepage": "https://github.com/bradbenetton/collins"
+  "homepage": "https://github.com/ivitivan/collins"
 }
