@@ -6,7 +6,7 @@ var accessKey = config.ACCESS_KEY;
 describe('Collins', function() {
 	var Collins, collins;
 	beforeEach(function(done) {
-		Collins = require('../dist/collins.js');
+		Collins = require('../lib/collins.js');
 		collins = new Collins(serverName, accessKey);
 		done();
 	});
@@ -18,5 +18,20 @@ describe('Collins', function() {
 			done();
 		});
 	});
+
+	it('should get a dictionary', function(done) {
+		collins.dictionaries(function(err, data) {
+			if (err) return done(err);
+			var dict = data[0];
+			console.log('code', data[0].dictionaryCode);
+			collins.dictionary(data[0].dictionaryCode, function(err, data) {
+				console.log('data', data);
+				if (err) return done(err);
+				expect(data).to.be.a('object');
+				expect(data).to.equal(dict);
+				done();
+			});
+		});
+	})
 
 });
