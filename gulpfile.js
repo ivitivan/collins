@@ -5,6 +5,7 @@ var jsdoc = require('gulp-jsdoc');
 var babel = require('gulp-babel');
 var plumber = require('gulp-plumber');
 var jsSrc = src + '/**/*.js';
+var errorHandler = require('./gulp/utils/errorHandler.js');
 
 gulp.task('watch', function() {
 	gulp.watch(jsSrc, ['babel']);
@@ -18,7 +19,7 @@ gulp.task('jsdoc', function() {
 
 gulp.task('babel', function() {
 	return gulp.src(jsSrc)
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: errorHandler}))
 		.pipe(babel())
 		.pipe(plumber.stop())
 		.pipe(gulp.dest(dist));
