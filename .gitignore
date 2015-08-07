@@ -4,4 +4,4 @@
 *.swn
 
 node_modules/*
-test.js
+_config.js
