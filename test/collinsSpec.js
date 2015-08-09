@@ -20,29 +20,33 @@ describe('Collins', function() {
 		})
 	});
 	
-	it('should get a list of available dictionaries', function(done) {
-		collins.dictionaries(function(err, data) {
-			if (err) return done(err);
-			expect(data).to.be.a('array');
-			dictionaryCode = data[0].dictionaryCode;
-			done();
-		});
-	});
-
-	it('should get a dictionary', function(done) {
-		collins.dictionaries(function(err, data) {
-			if (err) return done(err);
-			var dict = data[0];
-			collins.dictionary(data[0].dictionaryCode, function(err, data) {
+	describe.skip('#dictionaries', function() {
+		it('should get a list of available dictionaries', function(done) {
+			collins.dictionaries(function(err, data) {
 				if (err) return done(err);
-				expect(data).to.be.a('object');
-				expect(data).to.deep.equal(dict);
+				expect(data).to.be.a('array');
+				dictionaryCode = data[0].dictionaryCode;
 				done();
 			});
 		});
 	});
 
-	describe('#search', function() {
+	describe.skip('#dictionary', function() {
+		it('should get a dictionary', function(done) {
+			collins.dictionaries(function(err, data) {
+				if (err) return done(err);
+				var dict = data[0];
+				collins.dictionary(data[0].dictionaryCode, function(err, data) {
+					if (err) return done(err);
+					expect(data).to.be.a('object');
+					expect(data).to.deep.equal(dict);
+					done();
+				});
+			});
+		});
+	});
+
+	describe.skip('#search', function() {
 		beforeEach(function(done) {
 			if (!dictionaryCode) {
 				collins.dictionaries(function(err, data) {
@@ -80,7 +84,7 @@ describe('Collins', function() {
 		});
 	});
 
-	describe('#didYouMean', function() {
+	describe.skip('#didYouMean', function() {
 		it('should return an object', function(done) {
 			debugger;
 			collins.didYouMean(dictionaryCode, 'grrape', 10, function(err, data) {
@@ -100,7 +104,7 @@ describe('Collins', function() {
 
 	});
 
-	describe('#first', function() {
+	describe.skip('#first', function() {
 		it('should return an object', function(done) {
 			collins.first(dictionaryCode, 'computer', 'html', function(err, data) {
 				if (err) return done(err);
@@ -118,7 +122,7 @@ describe('Collins', function() {
 		});
 	});
 
-	describe('#entry', function() {
+	describe.skip('#entry', function() {
 		var entryId = 'the-grape_1';
 		var format = 'html';
 
@@ -133,6 +137,50 @@ describe('Collins', function() {
 
 		it('should run without an optional parameter', function(done) {
 			collins.entry(dictionaryCode, entryId, function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			});
+		});
+	})
+
+	describe.skip('#pronunciation', function() {
+		var entryId = 'the-grape_1';
+		var lang = 'en';
+
+		it('should return an object', function(done) {
+			collins.pronunciation(dictionaryCode, entryId, lang, function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			});
+		});
+
+
+		it('should run without an optional parameter', function(done) {
+			collins.pronunciation(dictionaryCode, entryId, function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			});
+		});
+	})
+
+	describe('#nearby', function() {
+		var entryId = 'the-grape_1';
+		var entryNumber = 10;
+
+		it('should return an object', function(done) {
+			collins.nearby(dictionaryCode, entryId, entryNumber, function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			});
+		});
+
+
+		it('should run without an optional parameter', function(done) {
+			collins.nearby(dictionaryCode, entryId, function(err, data) {
 				if (err) return done(err);
 				expect(data).to.be.an('object');
 				done();
