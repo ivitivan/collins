@@ -118,4 +118,26 @@ describe('Collins', function() {
 		});
 	});
 
+	describe('#entry', function() {
+		var entryId = 'the-grape_1';
+		var format = 'html';
+
+		it('should return an object', function(done) {
+			collins.entry(dictionaryCode, entryId, format, function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			});
+		});
+
+
+		it('should run without an optional parameter', function(done) {
+			collins.entry(dictionaryCode, entryId, function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			});
+		});
+	})
+
 });
