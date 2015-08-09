@@ -100,4 +100,22 @@ describe('Collins', function() {
 
 	});
 
+	describe('#first', function() {
+		it('should return an object', function(done) {
+			collins.first(dictionaryCode, 'computer', 'html', function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			});
+		});
+
+		it('should run without an optional parameter', function(done) {
+			collins.first(dictionaryCode, 'book', function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			});
+		});
+	});
+
 });
