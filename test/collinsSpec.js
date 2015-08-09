@@ -34,7 +34,6 @@ describe('Collins', function() {
 			if (err) return done(err);
 			var dict = data[0];
 			collins.dictionary(data[0].dictionaryCode, function(err, data) {
-				debugger;
 				if (err) return done(err);
 				expect(data).to.be.a('object');
 				expect(data).to.deep.equal(dict);
@@ -79,6 +78,26 @@ describe('Collins', function() {
 				done();
 			});
 		});
+	});
+
+	describe('#didYouMean', function() {
+		it('should return an object', function(done) {
+			debugger;
+			collins.didYouMean(dictionaryCode, 'grrape', 10, function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			}); 
+		});
+		
+		it('should run without the optional parameter', function(done) {
+			collins.didYouMean(dictionaryCode, 'grrape', function(err, data) {
+				if (err) return done(err);
+				expect(data).to.be.an('object');
+				done();
+			}); 
+		});
+
 	});
 
 });
