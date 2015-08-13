@@ -1,6 +1,6 @@
 {
   "name": "collins",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Collins English Dictionary asynchronous API for Node.js",
   "main": "./lib/collins.js",
   "dependencies": {
