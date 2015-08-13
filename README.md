@@ -102,7 +102,9 @@ module.exports = {
 ``` 
 inside `test` directory, then run:
 
-```mocha```
+```
+mocha
+```
 
 ## License
 
