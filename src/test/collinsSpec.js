@@ -14,14 +14,14 @@ describe('Collins', function() {
 		done();
 	});
 
-	describe.skip('#get_', function() {
+	describe('#get_', function() {
 		it('should work with optional parameters', function(done) {
 			collins.get_('/dictionaries');
 			collins.get_('')
 		})
 	});
 	
-	describe.skip('#dictionaries', function() {
+	describe('#dictionaries', function() {
 		it('should get a list of available dictionaries', function(done) {
 			collins.dictionaries(function(err, data) {
 				if (err) return done(err);
@@ -32,7 +32,7 @@ describe('Collins', function() {
 		});
 	});
 
-	describe.skip('#dictionary', function() {
+	describe('#dictionary', function() {
 
 		it('should get a dictionary', function(done) {
 			collins.dictionaries(function(err, data) {
@@ -105,7 +105,7 @@ describe('Collins', function() {
 
 	});
 
-	describe.skip('#didYouMean', function() {
+	describe('#didYouMean', function() {
 		it('should return an object', function(done) {
 			collins.didYouMean(dictionaryCode, 'grrape', 10, function(err, data) {
 				if (err) return done(err);
@@ -124,7 +124,7 @@ describe('Collins', function() {
 
 	});
 
-	describe.skip('#first', function() {
+	describe('#first', function() {
 		it('should return an object', function(done) {
 			collins.first(dictionaryCode, 'computer', 'html', function(err, data) {
 				if (err) return done(err);
@@ -142,7 +142,7 @@ describe('Collins', function() {
 		});
 	});
 
-	describe.skip('#entry', function() {
+	describe('#entry', function() {
 		var entryId = 'the-grape_1';
 		var format = 'html';
 
@@ -164,7 +164,7 @@ describe('Collins', function() {
 		});
 	})
 
-	describe.skip('#pronunciation', function() {
+	describe('#pronunciation', function() {
 		var entryId = 'the-grape_1';
 		var lang = 'en';
 
