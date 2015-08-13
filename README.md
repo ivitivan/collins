@@ -91,6 +91,19 @@ c.pronunciation(dictionaryCode, entryId, lang, callback)
 
 c.nearby(dictionaryCode, entryId, entryNumber, callback)
 
+## Tests
+
+To run tests specify an access key and a base url in `_config.js` like so:
+```
+module.exports = {
+	SERVER_NAME: 'api.collinsdictionary.com',
+	ACCESS_KEY: 'your access key'
+};
+``` 
+inside `test` directory, then run:
+
+```mocha```
+
 ## License
 
 MIT
